@@ -3,9 +3,9 @@ import Link from 'next/link';
 export function WelcomeText() {
   return (
     <div>
-      <div className='max-w-4xl mx-auto text-center'>
+      <div className='max-w-3xl mx-auto text-center'>
         <h1 className='scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl '>
-          Escape to Serenity at Becca's Mobile Spa
+          Escape to Serenity at Becca's Mobile Spa.
         </h1>
         <hr className='w-full text-primary my-10 border-primary' />
         <p className='text-xl text-muted-foreground '>

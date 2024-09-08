@@ -27,7 +27,6 @@ body {
 }
 
 
-
 @layer base {
   :root {
     --background: 210 36% 98%; /* Soft, light blue for the background */

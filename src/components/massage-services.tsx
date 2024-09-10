@@ -90,9 +90,12 @@ export function MassageServices() {
                   {services.map((service, index) => (
                     <TableRow key={index}>
                       <TableCell className='font-medium'>
-                        {service.name}
-                        <p className='text-sm text-muted-foreground'>
+                        <span className='font-semibold'>{service.name}</span>
+                        <p className='text-sm text-accent'>
                           {service.duration}
+                        </p>
+                        <p className='mb-4 text-secondary-foreground'>
+                          {service.description}
                         </p>
                       </TableCell>
                       <TableCell>{service.swedish}</TableCell>
@@ -107,7 +110,7 @@ export function MassageServices() {
                 {services.map((service, index) => (
                   <Card key={index} className=''>
                     <CardHeader>
-                      <CardTitle className='text-lg text-primary'>
+                      <CardTitle className='font-semibold'>
                         {service.name}
                       </CardTitle>
                       <CardDescription>{service.duration}</CardDescription>

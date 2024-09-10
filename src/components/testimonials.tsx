@@ -37,7 +37,7 @@ export function Testimonials() {
                 <blockquote className='text-lg italic mb-4 text-secondary-foreground'>
                   {testimonial.quote}
                 </blockquote>
-                <footer className='text-right text-sm text-muted-foreground'>
+                <footer className='text-right text-sm text-accent italic'>
                   – {testimonial.author}
                 </footer>
               </CardContent>

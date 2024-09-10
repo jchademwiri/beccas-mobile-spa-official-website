@@ -13,6 +13,9 @@ const StructuredData = () => {
     telephone: '+27678345805',
     address: {
       '@type': 'PostalAddress',
+      streetAddress: '285 Erusmus Ave',
+      addressLocality: 'Raslouw AH',
+      postalCode: '0157',
       addressCountry: 'ZA',
     },
     geo: {
@@ -22,6 +25,7 @@ const StructuredData = () => {
     },
     priceRange: 'R350 - R960',
     openingHours: 'Mo-Su 09:00-20:00',
+    servesCuisine: 'Spa and Wellness Services',
     sameAs: [
       'https://www.facebook.com/beccasmobilespa',
       'https://www.instagram.com/beccasmobilespa',

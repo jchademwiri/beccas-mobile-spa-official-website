@@ -1,6 +1,8 @@
 import Link from 'next/link';
 import { Button } from './ui/button';
 
+let whatsappLink: string =
+  'https://wa.me/+27671360276/?text=hello there, i would like to book a massage. ';
 const Hero = () => {
   return (
     <section className='relative bg-[url(https://images.pexels.com/photos/3757942/pexels-photo-3757942.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)] bg-cover bg-center bg-no-repeat'>
@@ -22,14 +24,14 @@ const Hero = () => {
           </p>
 
           <div className='mt-8 flex flex-wrap gap-4 text-center'>
-            <Button variant={'destructive'} size={'lg'}>
-              <Link href='#' className=''>
-                Learn More
+            <Button variant={'secondary'} size={'lg'} className='bg-accent'>
+              <Link href='#services' className=''>
+                Our Services
               </Link>
             </Button>
-            <Button size={'lg'}>
+            <Button variant={'destructive'} size={'lg'}>
               {/* <span className='mr-2'>L</span> */}
-              <Link href='#' className=''>
+              <Link href={whatsappLink} className=''>
                 Book Appointment
               </Link>
             </Button>

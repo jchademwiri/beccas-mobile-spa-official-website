@@ -61,7 +61,7 @@ export function MassageServices() {
   ];
 
   return (
-    <section className='py-10 px-4 bg-muted'>
+    <section id='services' className='py-10 px-4 bg-muted'>
       <Card className='w-full max-w-5xl mx-auto'>
         <CardHeader>
           <CardTitle className='text-3xl font-bold text-center text-primary'>

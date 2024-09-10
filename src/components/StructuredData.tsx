@@ -13,9 +13,9 @@ const StructuredData = () => {
     telephone: '+27678345805',
     address: {
       '@type': 'PostalAddress',
-      streetAddress: '285 Erusmus Ave',
-      addressLocality: 'Raslouw AH',
-      postalCode: '0157',
+      streetAddress: '8474 Nkanyezi street',
+      addressLocality: 'Sunbaai, Hermanus',
+      postalCode: '7200',
       addressCountry: 'ZA',
     },
     geo: {

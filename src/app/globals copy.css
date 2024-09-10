@@ -2,10 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
 
 body {
-  /* color: var(--foreground);
-  background: var(--background); */
+  color: var(--foreground);
+  background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -71,7 +82,12 @@ body {
     --chart-4: 240 50% 40%; /* Lavender */
     --chart-5: 280 70% 35%; /* Deep purple */
   }
-  
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
 }
 
 

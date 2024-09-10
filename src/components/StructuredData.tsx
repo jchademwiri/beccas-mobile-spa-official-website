@@ -20,8 +20,8 @@ const StructuredData = () => {
     },
     geo: {
       '@type': 'GeoCoordinates',
-      latitude: '-26.2041',
-      longitude: '28.0473',
+      latitude: '-34.4092',
+      longitude: '19.2504',
     },
     priceRange: 'R350 - R960',
     openingHours: 'Mo-Su 09:00-20:00',

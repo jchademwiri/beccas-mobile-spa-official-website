@@ -2,21 +2,9 @@
 
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import { Quote } from 'lucide-react';
+import { testimonials } from '@/lib/data';
 
 export function Testimonials() {
-  const testimonials = [
-    {
-      quote:
-        "The best massage experience I've ever had! Becca's team is professional and the convenience of having them come to my home is unbeatable.",
-      author: 'Satisfied Client',
-    },
-    {
-      quote:
-        "After a session with Becca's Mobile Spa, I feel completely rejuvenated. Highly recommend!",
-      author: 'Happy Client',
-    },
-  ];
-
   return (
     <div className='w-full bg-background'>
       <div className='max-w-5xl mx-auto px-4 py-12'>

@@ -6,8 +6,8 @@ import { testimonials } from '@/lib/data';
 
 export function Testimonials() {
   return (
-    <div className='w-full bg-background'>
-      <div className='max-w-5xl mx-auto px-4 py-12'>
+    <div className='w-full bg-background px-4'>
+      <div className='max-w-5xl  mx-auto py-12'>
         <h2 className='text-3xl font-bold text-center mb-2 text-primary'>
           Testimonials
         </h2>
@@ -17,7 +17,7 @@ export function Testimonials() {
 
         <div className='grid gap-6 md:grid-cols-2'>
           {testimonials.map((testimonial, index) => (
-            <Card key={index} className='bg-secondary'>
+            <Card key={index} className='bg-secondary hover:border-accent'>
               <CardHeader>
                 <Quote className='w-8 h-8 text-primary mb-2' />
               </CardHeader>

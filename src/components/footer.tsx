@@ -1,14 +1,5 @@
-'use client';
+import { Phone, MessageSquare, Mail } from 'lucide-react';
 
-import {
-  Facebook,
-  Instagram,
-  Twitter,
-  Phone,
-  MessageSquare,
-  Mail,
-} from 'lucide-react';
-import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import SociaMedia from './social-media';
 
@@ -22,9 +13,10 @@ let emailLink: string = 'mailto:info@beccasmobilespa.co.za';
 export function Footer() {
   return (
     <div className='w-full bg-secondary'>
-      <div className='max-w-4xl mx-auto px-4 py-12'>
+      <div className='max-w-5xl mx-auto py-12'>
+        {/* px-4 */}
         {/* Social Media Section  */}
-        <SociaMedia />
+        {/* <SociaMedia /> */}
         <hr className='border-primary/50' />
         <footer className='text-center my-10'>
           <p className='mb-4 text-secondary-foreground'>

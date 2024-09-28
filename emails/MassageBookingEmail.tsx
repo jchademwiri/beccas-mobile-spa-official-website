@@ -23,8 +23,6 @@ interface MassageBookingEmailProps {
   preferredTime: string; // HH:mm format
   duration: 30 | 60 | 90; // Minutes
   massageType: "swedish" | "deep_tissue"; // Only Swedish and Deep Tissue remain
-  specialRequests?: string;
-  agreedToTerms: boolean;
 }
 
 export const MassageBookingEmail = ({
@@ -35,8 +33,6 @@ export const MassageBookingEmail = ({
   preferredTime = "10:00",
   duration = 30,
   massageType = "swedish",
-  specialRequests = "No special requests",
-  agreedToTerms = true,
 }: MassageBookingEmailProps) => (
   <Html>
     <Head />
@@ -53,14 +49,14 @@ export const MassageBookingEmail = ({
           />
           <Section className="px-6 text-[16px] leading-6">
             <Section>
-              <Heading as="h3" className="text-[#F26222]">
+              <Heading as="h3" className="text-[#da0b73]">
                 Contact Details
               </Heading>
               <Text>Full Name: {name}</Text>
               <Text>Email Address: {email}</Text>
               <Text>Phone Number: {phone}</Text>
               <Hr className="border-[#F26222]" />
-              <Heading as="h3" className="text-[#F26222]">
+              <Heading as="h3" className="text-[#da0b73]">
                 Booking Details
               </Heading>
               <Text>
@@ -74,13 +70,11 @@ export const MassageBookingEmail = ({
               <Text>Time: {preferredTime}</Text>
               <Text>Duration: {duration} minutes</Text>
               <Text>Massage Type: {massageType}</Text>
-              <Text>Special Requests: {specialRequests}</Text>
-              <Text>Agreed to Terms: {agreedToTerms ? "Yes" : "No"}</Text>
             </Section>
           </Section>
-          <Section className="relative bg-[url(https://images.pexels.com/photos/19185961/pexels-photo-19185961/free-photo-of-woman-with-towel-on-head-during-massage.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)] bg-cover bg-center bg-no-repeat">
-            <div className="absolute inset-0 bg-gray-900/75 bg-gradient-to-r"></div>
-            <Container className="relative flex justify-between px-6 text-white">
+          <Section className="relative bg-cover bg-center bg-no-repeat">
+            <div className="absolute inset-0 bg-[#e4e4f9]"></div>
+            <Container className="relative flex justify-between px-6 text-black">
               <Text>
                 065 723 6771 | info@beccasmobilespa.co.za | Becca's Mobile Spa
               </Text>

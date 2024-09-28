@@ -1,3 +1,3 @@
-import MassageBookingForm from "./MassageBookingForm";
+import { MassageBookingForm } from "./MassageBookingForm";
 
 export { MassageBookingForm };

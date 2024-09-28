@@ -241,7 +241,7 @@ export function MassageBookingForm() {
             />
           </div>
 
-          <Button type="submit" className="mt-4">
+          <Button type="submit" className="mt-4 w-full md:w-auto">
             Submit
           </Button>
         </section>

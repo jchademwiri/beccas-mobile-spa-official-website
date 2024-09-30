@@ -2,68 +2,72 @@
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-import { z } from "zod";
+import { useState } from "react";
 
 import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
+
 import { CalendarIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover";
 import { Calendar } from "../ui/calendar";
 import { format } from "date-fns";
 import { RadioGroup, RadioGroupItem } from "../ui/radio-group";
-const formSchema = z.object({
-  name: z.string().min(2, {
-    message: "Name must be at least 2 characters.",
-  }),
-  phone: z.string().min(10, {
-    message: "Phone number must be at least 10 characters.",
-  }),
-  email: z.string().email({
-    message: "Email must be a valid email address.",
-  }),
-  preferredDate: z.date(),
-  preferredTime: z.string().min(1, {
-    message: "Preferred time is required.",
-  }),
-  duration: z.enum(["30", "60", "90", "120"], {
-    errorMap: () => ({
-      message: "Duration must be 30, 60, 90, or 120 minutes.",
-    }),
-  }),
-  massageType: z.enum(["swedish", "deep_tissue"]),
-});
+import {
+  massageBookingFormSchema,
+  TMassageBookingFormSchema,
+} from "@/lib/validation";
+import Spinner from "../Spinner";
+import { SendBookingEmail } from "@/app/actions/SendBookingEmail";
 
 export function MassageBookingForm() {
   // 1. Define your form.
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
+  const form = useForm<TMassageBookingFormSchema>({
+    resolver: zodResolver(massageBookingFormSchema),
     defaultValues: {
       name: "",
       phone: "",
       email: "",
       preferredDate: new Date(),
-      preferredTime: "",
+      preferredTime: "10:00",
       massageType: undefined,
       duration: undefined,
     },
   });
 
+  const [isSubmitting, setIsSubmitting] = useState(false);
   // 2. Define a submit handler.
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    // Do something with the form values.
+  async function onSubmit(massageFormData: TMassageBookingFormSchema) {
+    // Do something with the form massageFormData.
     // ✅ This will be type-safe and validated.
-    console.log("Booking Details: ", values);
+    setIsSubmitting(true);
+
+    SendBookingEmail(massageFormData);
+    // Do something with the form massageFormData.
+    // ✅ This will be type-safe and validated.
+    // await SendBasicEducationEmail(data);
+    // toast({
+    //   title: `Thank You ${massageFormData.name}`,
+    //   description: (
+    //     <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
+    //       <code className="text-white">
+    //         Your email for {massageFormData.name} has been sent successfully.
+    //       </code>
+    //     </pre>
+    //   ),
+    // });
+    console.log("Booking Details: ", massageFormData);
+
+    form.reset();
+    setIsSubmitting(false);
   }
 
   return (
@@ -166,13 +170,13 @@ export function MassageBookingForm() {
                     >
                       <FormItem className="flex items-center space-x-3 space-y-0">
                         <FormControl>
-                          <RadioGroupItem value="swedish" />
+                          <RadioGroupItem value={"Swedish"} />
                         </FormControl>
                         <FormLabel className="font-normal">Swedish</FormLabel>
                       </FormItem>
                       <FormItem className="flex items-center space-x-3 space-y-0">
                         <FormControl>
-                          <RadioGroupItem value="deep_tissue" />
+                          <RadioGroupItem value={"Deep Tissue"} />
                         </FormControl>
                         <FormLabel className="font-normal">
                           Deep Tissue
@@ -198,7 +202,7 @@ export function MassageBookingForm() {
                     >
                       <FormItem className="flex items-center space-x-3 space-y-0">
                         <FormControl>
-                          <RadioGroupItem value={"30"} />
+                          <RadioGroupItem value={"30 Minutes"} />
                         </FormControl>
                         <FormLabel className="font-normal">
                           30 minutes
@@ -206,7 +210,7 @@ export function MassageBookingForm() {
                       </FormItem>
                       <FormItem className="flex items-center space-x-3 space-y-0">
                         <FormControl>
-                          <RadioGroupItem value={"60"} />
+                          <RadioGroupItem value={"60 Minutes"} />
                         </FormControl>
                         <FormLabel className="font-normal">
                           60 minutes
@@ -214,7 +218,15 @@ export function MassageBookingForm() {
                       </FormItem>
                       <FormItem className="flex items-center space-x-3 space-y-0">
                         <FormControl>
-                          <RadioGroupItem value={"90"} />
+                          <RadioGroupItem value={"90 Minutes"} />
+                        </FormControl>
+                        <FormLabel className="font-normal">
+                          90 minutes
+                        </FormLabel>
+                      </FormItem>
+                      <FormItem className="flex items-center space-x-3 space-y-0">
+                        <FormControl>
+                          <RadioGroupItem value={"120 Minutes"} />
                         </FormControl>
                         <FormLabel className="font-normal">
                           90 minutes
@@ -226,6 +238,7 @@ export function MassageBookingForm() {
                 </FormItem>
               )}
             />
+
             <FormField
               control={form.control}
               name="preferredTime"
@@ -241,8 +254,15 @@ export function MassageBookingForm() {
             />
           </div>
 
-          <Button type="submit" className="mt-4 w-full md:w-auto">
-            Submit
+          <Button
+            type="submit"
+            disabled={isSubmitting}
+            className="mt-4 w-full md:w-auto"
+            // onClick={() =>
+            //   sendGAEvent({ event: "buttonClicked", value: "Form Submited" })
+            // }
+          >
+            Submit {isSubmitting && <Spinner />}
           </Button>
         </section>
       </form>

@@ -21,8 +21,8 @@ interface MassageBookingEmailProps {
   email: string;
   preferredDate: Date;
   preferredTime: string; // HH:mm format
-  duration: 30 | 60 | 90; // Minutes
-  massageType: "swedish" | "deep_tissue"; // Only Swedish and Deep Tissue remain
+  duration: "30 Minutes" | "60 Minutes" | "90 Minutes" | "120 Minutes";
+  massageType: "Swedish" | "Deep Tissue"; // Only Swedish and Deep Tissue remain
 }
 
 export const MassageBookingEmail = ({
@@ -31,8 +31,8 @@ export const MassageBookingEmail = ({
   email = "info@beccasmobilespa.co.za",
   preferredDate = new Date(),
   preferredTime = "10:00",
-  duration = 30,
-  massageType = "swedish",
+  duration = "30 Minutes",
+  massageType = "Swedish",
 }: MassageBookingEmailProps) => (
   <Html>
     <Head />

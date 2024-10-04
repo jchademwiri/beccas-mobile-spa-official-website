@@ -18,7 +18,7 @@ export function Footer() {
         <hr className="border-primary/50" />
         <footer className="my-10 text-center">
           <p className="mb-4 text-secondary-foreground">
-            © 2024 Becca's Mobile Spa. All rights reserved.
+            © 2024 Becca&apos;s Mobile Spa. All rights reserved.
           </p>
           <div className="flex flex-col items-center justify-center space-y-2 sm:flex-row sm:space-x-4 sm:space-y-0">
             <div className="flex items-center text-secondary-foreground">

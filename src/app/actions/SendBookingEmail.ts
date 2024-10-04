@@ -24,7 +24,7 @@ export const SendBookingEmail = async ({
       react: MassageBookingEmail({
         name,
         phone,
-        email: "",
+        email,
         preferredDate,
         preferredTime,
         duration,

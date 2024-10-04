@@ -7,9 +7,12 @@ const massageBookingFormSchema = z.object({
   phone: z.string().min(10, {
     message: "Phone number must be at least 10 characters.",
   }),
-  email: z.string().email({
-    message: "Email must be a valid email address.",
-  }),
+  email: z
+    .string()
+    .email({
+      message: "Email must be a valid email address.",
+    })
+    .optional(),
   preferredDate: z.date(),
   preferredTime: z.string().min(1, {
     message: "Preferred time is required.",

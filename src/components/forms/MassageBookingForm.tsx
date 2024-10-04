@@ -229,7 +229,7 @@ export function MassageBookingForm() {
                           <RadioGroupItem value={"120 Minutes"} />
                         </FormControl>
                         <FormLabel className="font-normal">
-                          90 minutes
+                          120 minutes
                         </FormLabel>
                       </FormItem>
                     </RadioGroup>

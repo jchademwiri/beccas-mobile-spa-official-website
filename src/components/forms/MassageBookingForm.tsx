@@ -27,6 +27,7 @@ import {
 } from "@/lib/validation";
 import Spinner from "../Spinner";
 import { SendBookingEmail } from "@/app/actions/SendBookingEmail";
+import { toast } from "@/hooks/use-toast";
 
 export function MassageBookingForm() {
   // 1. Define your form.
@@ -50,20 +51,17 @@ export function MassageBookingForm() {
     // ✅ This will be type-safe and validated.
     setIsSubmitting(true);
 
-    SendBookingEmail(massageFormData);
     // Do something with the form massageFormData.
     // ✅ This will be type-safe and validated.
-    // await SendBasicEducationEmail(data);
-    // toast({
-    //   title: `Thank You ${massageFormData.name}`,
-    //   description: (
-    //     <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
-    //       <code className="text-white">
-    //         Your email for {massageFormData.name} has been sent successfully.
-    //       </code>
-    //     </pre>
-    //   ),
-    // });
+    await SendBookingEmail(massageFormData);
+    toast({
+      title: `Thank You, ${massageFormData.name}`,
+      description: (
+        <pre className="mt-2 w-[340px] rounded-md bg-background p-4">
+          <code className="">Your email has been sent successfully.</code>
+        </pre>
+      ),
+    });
     console.log("Booking Details: ", massageFormData);
 
     form.reset();
@@ -258,9 +256,6 @@ export function MassageBookingForm() {
             type="submit"
             disabled={isSubmitting}
             className="mt-4 w-full md:w-auto"
-            // onClick={() =>
-            //   sendGAEvent({ event: "buttonClicked", value: "Form Submited" })
-            // }
           >
             Submit {isSubmitting && <Spinner />}
           </Button>

@@ -10,6 +10,7 @@ const massageBookingFormSchema = z.object({
   email: z.string().email({
     message: "Email must be a valid email address.",
   }),
+
   preferredDate: z.date(),
   preferredTime: z.string().min(1, {
     message: "Preferred time is required.",

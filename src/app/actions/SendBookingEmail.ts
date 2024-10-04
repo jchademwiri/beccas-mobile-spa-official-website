@@ -16,10 +16,10 @@ export const SendBookingEmail = async ({
     const resend: any = new Resend(process.env.RESEND_API_KEY);
 
     await resend.emails.send({
-      from: `Becca's Mobile Spa <bookings@beccasmobilespa.co.za>`,
+      from: `Becca's Mobile Spa <info@beccasmobilespa.co.za>`,
       to: `info@beccasmobilespa.co.za`,
       cc: `${email}`,
-      reply_to: `info@dyondzisanicommerce.co.za`,
+      reply_to: `info@beccasmobilespa.co.za`,
       subject: "Massage Booking Appointemnt",
       react: MassageBookingEmail({
         name,

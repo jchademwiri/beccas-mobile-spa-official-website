@@ -10,14 +10,14 @@ const Hero = () => {
       <div className="relative mx-auto max-w-screen-xl px-4 py-32 sm:px-6 lg:flex lg:h-screen lg:items-center lg:px-8">
         <div className="max-w-xl text-center sm:text-left">
           <h1 className="text-3xl font-extrabold text-accent sm:text-5xl">
-            Welcome to Becca's
+            Welcome to Becca&apos;s
             <strong className="block font-extrabold text-destructive">
               Mobile Spa.{" "}
             </strong>
           </h1>
 
           <p className="mt-4 max-w-lg text-accent sm:text-xl/relaxed">
-            Discover the path to wellness with Becca's Mobile Spa, where
+            Discover the path to wellness with Becca&apos;s Mobile Spa, where
             relaxation and rejuvenation come to you. Indulge in a tailored spa
             experience designed to restore balance to your body and mind.
           </p>

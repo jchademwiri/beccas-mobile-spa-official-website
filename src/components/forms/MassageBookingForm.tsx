@@ -29,7 +29,7 @@ import Spinner from "../Spinner";
 import { SendBookingEmail } from "@/app/actions/SendBookingEmail";
 import { toast } from "@/hooks/use-toast";
 
-export async function MassageBookingForm() {
+export function MassageBookingForm() {
   // 1. Define your form.
   const form = useForm<TMassageBookingFormSchema>({
     resolver: zodResolver(massageBookingFormSchema),
@@ -55,12 +55,10 @@ export async function MassageBookingForm() {
     // ✅ This will be type-safe and validated.
     await SendBookingEmail(massageFormData);
     toast({
-      title: `Thank You ${massageFormData.name}`,
+      title: `Thank You, ${massageFormData.name}`,
       description: (
-        <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
-          <code className="text-white">
-            Your email for {massageFormData.name} has been sent successfully.
-          </code>
+        <pre className="mt-2 w-[340px] rounded-md bg-background p-4">
+          <code className="">Your email has been sent successfully.</code>
         </pre>
       ),
     });
@@ -258,9 +256,6 @@ export async function MassageBookingForm() {
             type="submit"
             disabled={isSubmitting}
             className="mt-4 w-full md:w-auto"
-            // onClick={() =>
-            //   sendGAEvent({ event: "buttonClicked", value: "Form Submited" })
-            // }
           >
             Submit {isSubmitting && <Spinner />}
           </Button>

@@ -71,7 +71,7 @@ export function MassageBookingForm() {
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-        <section className="mx-auto max-w-2xl px-4 py-6">
+        <section className="mx-auto max-w-2xl py-6">
           <div className="grid gap-2 md:grid-cols-2">
             <FormField
               control={form.control}

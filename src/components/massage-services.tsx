@@ -7,8 +7,10 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { phone, whatsappLink } from "@/lib/contactDetails";
 
 import { services } from "@/lib/data";
+import Link from "next/link";
 
 export function MassageServices() {
   return (
@@ -40,6 +42,17 @@ export function MassageServices() {
               </CardContent>
             </Card>
           ))}
+          <Card className="cursor-pointer bg-accent/50 hover:border-primary">
+            <Link href={whatsappLink} className="h-full w-full text-3xl">
+              <CardHeader>
+                <CardTitle className="font-semibold">
+                  Let's Chat on WhatsApp
+                </CardTitle>
+                <hr className="border-accent/70" />
+              </CardHeader>
+              <CardContent>{phone}</CardContent>
+            </Link>
+          </Card>
         </div>
       </div>
     </section>

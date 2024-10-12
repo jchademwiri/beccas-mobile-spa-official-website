@@ -28,6 +28,7 @@ import {
 import Spinner from "../Spinner";
 import { SendBookingEmail } from "@/app/actions/SendBookingEmail";
 import { toast } from "@/hooks/use-toast";
+import Link from "next/link";
 
 export function MassageBookingForm() {
   // 1. Define your form.
@@ -71,7 +72,7 @@ export function MassageBookingForm() {
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-        <section className="mx-auto max-w-2xl px-4 py-6">
+        <section className="mx-auto max-w-2xl py-6">
           <div className="grid gap-2 md:grid-cols-2">
             <FormField
               control={form.control}
@@ -251,14 +252,18 @@ export function MassageBookingForm() {
               )}
             />
           </div>
-
-          <Button
-            type="submit"
-            disabled={isSubmitting}
-            className="mt-4 w-full md:w-auto"
-          >
-            Submit {isSubmitting && <Spinner />}
-          </Button>
+          <div className="flex justify-between">
+            <Button
+              type="submit"
+              disabled={isSubmitting}
+              className="mt-4 w-full md:w-auto"
+            >
+              Submit {isSubmitting && <Spinner />}
+            </Button>
+            <Button variant={"destructive"} className="mt-4 w-full md:w-auto">
+              <Link href="/">Cancel</Link>
+            </Button>
+          </div>
         </section>
       </form>
     </Form>

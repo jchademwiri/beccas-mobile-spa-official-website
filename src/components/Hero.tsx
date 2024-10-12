@@ -30,8 +30,11 @@ const Hero = () => {
             </Button>
             <Button variant={"destructive"} size={"lg"}>
               {/* <span className='mr-2'>L</span> */}
-              <Link href={whatsappLink} className="">
+              {/* <Link href={whatsappLink} className="">
                 Book Appointment
+              </Link> */}
+              <Link href="/book-an-appointment" className="">
+                Book An Appointment
               </Link>
             </Button>
           </div>
